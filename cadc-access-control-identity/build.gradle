@@ -10,6 +10,8 @@ repositories {
     mavenLocal()
 }
 
+jar.archiveName = "cadc-access-control-identity.jar"
+
 sourceCompatibility = 1.7
 group = 'org.opencadc'
 
@@ -18,10 +20,15 @@ version = '1.0.3'
 dependencies {
     compile 'log4j:log4j:1.2.+'
 
-    compile 'org.opencadc:cadc-util:1.+'
-    compile 'org.opencadc:cadc-registry:1.+'
-    compile 'org.opencadc:cadc-vosi:1.+'
-    compile 'org.opencadc:cadc-access-control:1.+'
-    
+    //compile 'org.opencadc:cadc-util:1.+'
+    //compile 'org.opencadc:cadc-registry:1.+'
+    //compile 'org.opencadc:cadc-vosi:1.+'
+    //compile 'org.opencadc:cadc-access-control:1.+'
+    compile files('/home/bertocco/opt/opencadc/projects/core/cadc-log/build/libs/cadc-log.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/core/cadc-util/build/libs/cadc-util.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/reg/cadc-registry/build/libs/cadc-registry.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/reg/cadc-vosi/build/libs/cadc-vosi.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/ac/cadc-access-control/build/libs/cadc-access-control.jar')
+
     testCompile 'junit:junit:4.+'
 }
