@@ -11,6 +11,8 @@ repositories {
     mavenLocal()
 }
 
+jar.archiveName = "cadc-access-control.jar"
+
 sourceCompatibility = 1.7
 
 group = 'org.opencadc'
@@ -24,9 +26,12 @@ dependencies {
     compile 'org.jdom:jdom2:2.+'
     compile 'org.json:json:20160212'
 
-    compile 'org.opencadc:cadc-util:1.+'
-    compile 'org.opencadc:cadc-cdp:[1.0,)'
-    compile 'org.opencadc:cadc-registry:1.+'
+    //compile 'org.opencadc:cadc-util:1.+'
+    //compile 'org.opencadc:cadc-cdp:[1.0,)'
+    //compile 'org.opencadc:cadc-registry:1.+'
+    compile files('/home/bertocco/opt/opencadc/projects/core/cadc-util/build/libs/cadc-util.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/cdp/cadc-cdp/build/libs/cadc-cdp.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/reg/cadc-registry/build/libs/cadc-registry.jar')
 
     testCompile 'junit:junit:4.+'
     testCompile 'xerces:xercesImpl:2.+'

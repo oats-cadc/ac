@@ -11,6 +11,8 @@ repositories {
     mavenLocal()
 }
 
+jar.archiveName = "cadc-access-control-admin.jar"
+
 sourceCompatibility = 1.7
 
 group = 'org.opencadc'
@@ -26,10 +28,14 @@ dependencies {
     compile 'com.unboundid:unboundid-ldapsdk:2.3.+'
     compile 'com.sun.mail:javax.mail:1.+'
 
-    compile 'org.opencadc:cadc-util:1.+'
-    compile 'org.opencadc:cadc-registry:1.+'
-    compile 'org.opencadc:cadc-access-control:1.+'
-    compile 'org.opencadc:cadc-access-control-server:1.+'
+    //compile 'org.opencadc:cadc-util:1.+'
+    //compile 'org.opencadc:cadc-registry:1.+'
+    //compile 'org.opencadc:cadc-access-control:1.+'
+    //compile 'org.opencadc:cadc-access-control-server:1.+'
+    compile files('/home/bertocco/opt/opencadc/projects/core/cadc-util/build/libs/cadc-util.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/reg/cadc-registry/build/libs/cadc-registry.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/ac/cadc-access-control/build/libs/cadc-access-control.jar')
+    compile files('/home/bertocco/opt/opencadc/projects/ac/cadc-access-control-server/build/libs/cadc-access-control-server.jar')
 
     testCompile 'junit:junit:4.+'
 }
