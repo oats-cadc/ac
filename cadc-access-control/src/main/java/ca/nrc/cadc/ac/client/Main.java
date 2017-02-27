@@ -112,6 +112,8 @@ public class Main implements PrivilegedAction<Object>
     public static final String ARG_USERID = "userid";
     public static final String ARG_GROUP = "group";
 
+    public static final String ARG_LIST = "list";
+    
     public static final String ARG_HELP = "help";
     public static final String ARG_VERBOSE = "verbose";
     public static final String ARG_DEBUG = "debug";
@@ -186,6 +188,9 @@ public class Main implements PrivilegedAction<Object>
         if (argMap.isSet(ARG_DEL_ADMIN))
             return ARG_DEL_ADMIN;
 
+        if (argMap.isSet(ARG_LIST))
+            return ARG_LIST;
+        
         throw new IllegalArgumentException("No valid commands");
     }
 
@@ -194,6 +199,8 @@ public class Main implements PrivilegedAction<Object>
         System.out.println("--create --group=<uri>");
         System.out.println("--get --group=<uri>");
         System.out.println("--delete --group=<uri>");
+        System.out.println();
+        System.out.println("--list --group=<uri>");
         System.out.println();
         System.out.println("--add-member --group=<uri> --userid=<u>");
         System.out.println("--remove-member --group=<uri> --userid=<u>");
@@ -361,6 +368,13 @@ public class Main implements PrivilegedAction<Object>
                     throw new IllegalArgumentException("No group specified");
 
                 client.deleteGroup(group);
+            }
+            else if (command.equals(ARG_LIST))
+            {
+                if (group == null)
+                    throw new IllegalArgumentException("No group specified");
+                
+                return client.getGroups();
             }
 
             return null;
